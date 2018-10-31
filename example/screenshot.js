@@ -1,13 +1,13 @@
 const puppeteer = require('puppeteer');
 
-const screenShot = async (url) => {
+const screenShot = async () => {
 
 
   try {
     const browser = await puppeteer.launch({ args: ['--no-sandbox'], timeout: 30000 });
     const page = await browser.newPage();
 
-    await page.goto(url);
+    await page.goto('https://google.com');
     await page.screenshot({path: 'image.png', fullPage: true});
     await browser.close();
 
@@ -18,9 +18,4 @@ const screenShot = async (url) => {
   }
 }
 
-if (process.argv.length !== 3) {
-  console.error('Require only one commandline argument.');
-  return;
-}
-
-screenShot(process.argv[2]);
+screenShot();
