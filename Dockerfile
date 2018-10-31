@@ -16,4 +16,4 @@ RUN apt-get update && apt-get install -y wget --no-install-recommends \
     && apt-get purge --auto-remove -y curl \
     && rm -rf /src/*.deb
 
-RUN yarn add puppeteer
+RUN npm install puppeteer -g
